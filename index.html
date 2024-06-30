@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Transition Guide</title>
+    <link rel="stylesheet" href="site3.css">
+    <link rel="stylesheet" href="site4.css">
+    <script src="/campusconnectJAVAscript/script.js"></script>
+    <script src="search.js"></script>
+</head>
+<body>
+    
+    <header>
+        <a href="index.html">
+            <p style="text-align: center"><img src="assets/hugging.png" alt="" width="100" height="55" border="0"/></>
+        </a>
+        <div class="header-content">
+            <img src="" alt="">
+            <h1>CampusConnect</h1>
+            <marquee behavior="" direction=""><p>We're here to help you prepare for college with confidence!</p></marquee>
+        </div>
+        <div id="admin-controls" style="display: none;">
+            <!-- Admin-specific controls can go here -->
+            <button id="edit-resources">Edit Resources</button>
+        </div>
+    </header> 
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="FAQs.html">FAQ</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="resources.html">Resources</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Social Hub -->
+        <section class="section">
+            <h2>Social Hub</h2>
+            <p>Connect with your friends, seniors, and peers!</p>
+            <div class="button-group">
+                <a href="https://discord.com/channels/1253742122490789989/1253742122490789992">
+                    <img src="assets/social_hub_image.jpg" alt="Social Hub" class="section-image">
+                    <span>friendcircle</span>
+                </a>
+                <a href="https://discord.com/channels/1253742837065842708/1253742837623951413">
+                    <img src="assets/senior_advice_image.jpg" alt="Senior Advice" class="section-image">
+                    <span>Senior Advice</span>
+                </a>
+                <a href="https://discord.com/channels/1253740283011661894/1253740283011661898">
+                    <img src="assets/discord_chat_image.jpg"  class="section-images">
+                    <span>Discord chat</span>
+                </a>
+            </div>
+        </section>
+        
+        <!-- Food Facilities -->
+        <section class="section">
+            <h2>Food Facilities</h2>
+            <p>Find the best dining spots on campus!</p>
+            <div class="button-group">
+                <a href="cafeteria.html">
+                    <img src="assets/cafeteria_image.jpg" alt="Cafeteria Menu" class="section-image">
+                    <span>Cafeteria Menu</span>
+                </a>
+                <a href="dininghour.html">
+                    <img src="assets/dining_hours_image.jpg" alt="Dining Hours" class="section-image">
+                    <span>Dining Hours</span>
+                </a>
+                <a href="foodreview.html">
+                    <img src="assets/food_reviews_image.jpg" alt="Food Reviews" class="section-image">
+                    <span>Food Reviews</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Activities -->
+        <section class="section">
+            <h2>Activities, Games & News</h2>
+            <p>Stay updated on the latest events, festivals, games & news!</p>
+            <ul>
+                <li><a href="calendar.html">Festival Calendar</a></li>
+                <li><a href="csp.html">Community Service Programs (CSP)</a></li>
+                <li><a href="extracurriculumn.html">Extracurricular Activities</a></li>
+            </ul>
+        </section>
+
+        <!-- Academics -->
+        <section class="section">
+            <h2>Access past papers and study materials!</h2>
+            <p>Explore our collection of past papers and study materials.</p>
+            <div class="button-group">
+                <button id="past-papers">
+                    Past Papers
+                </button>
+                <a href="https://www.amazon.in/s?k=study+materials+for+students&crid=XODIY6B0TM5T&sprefix=study+mater%2Caps%2C208&ref=nb_sb_ss_pltr-sample-20_2_11">
+                <button id="study-materials">
+                    Study Materials
+                </button></a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 College Transition Guide</p>
+    </footer>
+
+    <script>
+        // Example of client-side authentication logic
+        const isAdmin = true; // Assume user is admin after successful sign-in
+
+        if (isAdmin) {
+            // Show admin controls
+            document.getElementById("admin-controls").style.display = "block";
+        }
+
+        // Redirect to another page when clicking on Past Papers button
+        document.getElementById("past-papers").addEventListener("click", function() {
+            window.location.href = "pastpaper.html";
+        });
+
+        // Redirect to edit resources page or perform admin-specific actions
+        document.getElementById("edit-resources").addEventListener("click", function() {
+            // Perform admin-specific actions here, such as redirecting to an admin page
+            window.location.href = "edit-resources.html";
+        });
+    </script>
+    
+</body>
+</html>

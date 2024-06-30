@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Resources | College Transition Guide</title>
+    <link rel="stylesheet" href="../site.css"> <!-- Assuming site.css is located in the parent directory -->
+    <script src="../script.js"></script>
+    <script src="../search.js"></script>
+</head>
+<body>
+    
+    <header>
+        <a href="../index.html">
+            <img src="../assets/hugging.png" alt="hugging" class="full-image">
+        </a>
+        <h1>CampusConnect Admin</h1>
+        <p>Welcome Admin! Manage resources here.</p>
+    </header> 
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="../about.html">About Us</a></li>
+            <li><a href="../FAQs.html">FAQ</a></li>
+            <li><a href="../blog.html">Blog</a></li>
+            <li><a href="../testimonials.html">Testimonials</a></li>
+            <li><a href="../resources.html">Resources</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Admin-specific content and controls -->
+        <h2>Edit Resources</h2>
+        <p>Manage and update resources for CampusConnect.</p>
+        <form id="resource-form">
+            <label for="resource-title">Resource Title:</label><br>
+            <input type="text" id="resource-title" name="resource-title"><br><br>
+            <label for="resource-content">Resource Content:</label><br>
+            <textarea id="resource-content" name="resource-content" rows="4" cols="50"></textarea><br><br>
+            <button type="submit">Save Changes</button>
+        </form>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 College Transition Guide</p>
+    </footer>
+
+    <script>
+        // Example form submission handling
+        document.getElementById("resource-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the default form submission
+            // Perform actions to save changes (e.g., send data to server or update localStorage)
+            alert("Changes saved successfully!");
+        });
+    </script>
+    
+</body>
+</html>

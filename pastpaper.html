@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Image Upload</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+    }
+    .button-group {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .image-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .image-item {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 5px;
+        margin: 10px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        transition: transform 0.2s ease-in-out;
+    }
+    .image-item:hover {
+        transform: scale(1.1);
+    }
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        overflow: auto;
+    }
+    .modal-content {
+        background-color: #fefefe;
+        margin: 10% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 60%;
+        border-radius: 5px;
+        position: relative;
+    }
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+<div class="button-group">
+    <button id="uploadImages">Upload Images</button>
+</div>
+
+<!-- Modal for uploading images -->
+<div id="uploadModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <h2>Admin Login</h2>
+        <label for="adminPassword">Admin Password:</label>
+        <input type="password" id="adminPassword">
+        <button id="loginBtn">Login</button>
+        <form id="uploadForm" action="upload.php" method="post" enctype="multipart/form-data" style="display: none;">
+            <label for="fileInput">Select image:</label>
+            <input type="file" id="fileInput" name="image">
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+</div>
+
+<!-- Modal for displaying images -->
+<div id="imageModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeImageModal">&times;</span>
+        <img id="modalImage" src="" alt="Full-size Image">
+    </div>
+</div>
+
+<div class="image-container" id="imageContainer"></div>
+
+<script>
+    const adminPassword = 'admin123'; // Replace with your actual admin password
+    let isAdminLoggedIn = false;
+
+    const uploadModal = document.getElementById('uploadModal');
+    const closeModal = document.getElementById('closeModal');
+    const loginBtn = document.getElementById('loginBtn');
+    const adminPasswordInput = document.getElementById('adminPassword');
+    const uploadImagesBtn = document.getElementById('uploadImages');
+    const uploadForm = document.getElementById('uploadForm');
+    const imageModal = document.getElementById('imageModal');
+    const closeImageModal = document.getElementById('closeImageModal');
+    const modalImage = document.getElementById('modalImage');
+    const imageContainer = document.getElementById('imageContainer');
+
+    // Show upload modal when uploadImagesBtn is clicked
+    uploadImagesBtn.addEventListener('click', function() {
+        uploadModal.style.display = 'block';
+    });
+
+    // Close the upload modal when close button is clicked
+    closeModal.addEventListener('click', function() {
+        uploadModal.style.display = 'none';
+        adminPasswordInput.value = ''; // Clear password input
+    });
+
+    // Admin login functionality
+    loginBtn.addEventListener('click', function() {
+        const enteredPassword = adminPasswordInput.value.trim();
+        if (enteredPassword === adminPassword) {
+            isAdminLoggedIn = true;
+            uploadModal.style.display = 'none';
+            alert('Admin logged in successfully!');
+            // Redirect to upload.html (implement actual upload logic on server-side)
+            window.location.href = 'upload.html';
+        } else {
+            alert('Incorrect password. Please try again.');
+        }
+    });
+
+    // Modal for displaying full-size image
+    function openModal(imageSrc) {
+        modalImage.src = imageSrc;
+        imageModal.style.display = 'block';
+    }
+
+    // Close modal for displaying full-size image
+    closeImageModal.addEventListener('click', function() {
+        imageModal.style.display = 'none';
+    });
+
+    // Simulated images for users to view (replace with actual images or URLs)
+    const images = [
+        'https://via.placeholder.com/150',
+        'https://via.placeholder.com/150',
+        'https://via.placeholder.com/150'
+    ];
+
+    // Display images for users to view
+    images.forEach(function(imageSrc) {
+        const image = new Image();
+        image.src = imageSrc;
+        image.classList.add('image-item');
+
+        // Add click event to open modal with full-size image
+        image.addEventListener('click', function() {
+            openModal(imageSrc);
+        });
+
+        imageContainer.appendChild(image);
+    });
+
+</script>
+
+</body>
+</html>

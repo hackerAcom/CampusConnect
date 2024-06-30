@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Resources - CampusConnect Admin</title>
+    <link rel="stylesheet" href="admin.css">
+    <script src="admin.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Edit Resources</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Social Hub</h2>
+            <form id="social-hub-form">
+                <label for="friend-circle-link">Friend Circle Link:</label>
+                <input type="text" id="friend-circle-link" name="friend-circle-link" required>
+                <label for="friend-circle-image">Friend Circle Image:</label>
+                <input type="text" id="friend-circle-image" name="friend-circle-image" required>
+
+                <label for="senior-advice-link">Senior Advice Link:</label>
+                <input type="text" id="senior-advice-link" name="senior-advice-link" required>
+                <label for="senior-advice-image">Senior Advice Image:</label>
+                <input type="text" id="senior-advice-image" name="senior-advice-image" required>
+
+                <label for="discord-chat-link">Discord Chat Link:</label>
+                <input type="text" id="discord-chat-link" name="discord-chat-link" required>
+                <label for="discord-chat-image">Discord Chat Image:</label>
+                <input type="text" id="discord-chat-image" name="discord-chat-image" required>
+
+                <button type="submit">Save Changes</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Food Facilities</h2>
+            <form id="food-facilities-form">
+                <label for="cafeteria-menu-link">Cafeteria Menu Link:</label>
+                <input type="text" id="cafeteria-menu-link" name="cafeteria-menu-link" required>
+                <label for="cafeteria-menu-image">Cafeteria Menu Image:</label>
+                <input type="text" id="cafeteria-menu-image" name="cafeteria-menu-image" required>
+
+                <label for="dining-hours-link">Dining Hours Link:</label>
+                <input type="text" id="dining-hours-link" name="dining-hours-link" required>
+                <label for="dining-hours-image">Dining Hours Image:</label>
+                <input type="text" id="dining-hours-image" name="dining-hours-image" required>
+
+                <label for="food-reviews-link">Food Reviews Link:</label>
+                <input type="text" id="food-reviews-link" name="food-reviews-link" required>
+                <label for="food-reviews-image">Food Reviews Image:</label>
+                <input type="text" id="food-reviews-image" name="food-reviews-image" required>
+
+                <button type="submit">Save Changes</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 College Transition Guide Admin</p>
+    </footer>
+
+    <script>
+        document.getElementById('social-hub-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const form = event.target;
+            const data = {
+                friendCircleLink: form['friend-circle-link'].value,
+                friendCircleImage: form['friend-circle-image'].value,
+                seniorAdviceLink: form['senior-advice-link'].value,
+                seniorAdviceImage: form['senior-advice-image'].value,
+                discordChatLink: form['discord-chat-link'].value,
+                discordChatImage: form['discord-chat-image'].value,
+            };
+            // Logic to save Social Hub data
+            console.log('Saving Social Hub Data', data);
+        });
+
+        document.getElementById('food-facilities-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const form = event.target;
+            const data = {
+                cafeteriaMenuLink: form['cafeteria-menu-link'].value,
+                cafeteriaMenuImage: form['cafeteria-menu-image'].value,
+                diningHoursLink: form['dining-hours-link'].value,
+                diningHoursImage: form['dining-hours-image'].value,
+                foodReviewsLink: form['food-reviews-link'].value,
+                foodReviewsImage: form['food-reviews-image'].value,
+            };
+            // Logic to save Food Facilities data
+            console.log('Saving Food Facilities Data', data);
+        });
+    </script>
+</body>
+</html>
