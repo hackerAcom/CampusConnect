@@ -1,0 +1,288 @@
+/* Basic Reset and Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  size:0cap
+  
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+header {
+  background-color: rgb(15,108,107);;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+}
+
+header h1 {
+  font-size: 2.5rem;
+}
+
+header p {
+  font-size: 1.2rem;
+}
+
+/* Navigation */
+nav {
+  background-color: #444;
+}
+
+nav ul {
+  list-style-type: none;
+  text-align: center;
+  padding: 10px 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Main Sections */
+.section {
+  padding: 20px; /* Adjust padding around the section */
+}
+
+.section h2 {
+  margin-bottom: 10px; /* Space below heading */
+}
+
+.section p {
+  margin-bottom: 20px; /* Space below paragraph */
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+}
+
+footer p {
+  font-size: 0.9rem;
+}
+.full-image {
+  width: 5%;
+  height: auto;
+  top: 0;
+  left: 10%;
+}
+.footer{
+  margin-top: opx;
+}
+.button-group {
+  display: flex;
+  justify-content: space-around; /* Center align items horizontally */
+  gap: 20px; /* Adjust the gap between items */
+} 
+
+/* For smaller screens (e.g., mobile devices) */
+@media only screen and (max-width: 768px) {
+  .button-group {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+.member1me{
+    height: 90px;
+}
+.user{
+  margin-right: auto;
+}
+.time-management{
+  height: 1px;
+  width: 1px;
+
+}
+.cafeteriasize{
+    width: 5px;
+    height: 6px; 
+    }
+    ul {
+      list-style-type: none;
+      padding: px;
+    }
+    
+
+.section-image {
+  max-width: 60%; /* Ensure image does not exceed its container width */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Remove defa  ult inline display */
+}
+.section-images{
+  max-width:400px; /* Ensure image does not exceed its container width */
+  height: 10%; /* Maintain aspect ratio */
+  display: block;
+}
+.button-group a {
+  text-align: center; /* Center text */
+  display: flex; /* Align items horizontally */
+  flex-direction: column; /* Align items vertically */
+  gap: 10px; /* Adjust gap between elements */
+  align-items: center; /* Center align items vertically */
+}
+/* Additional CSS styles */
+marquee {
+  color: #ffcc00;
+}
+
+#admin-controls {
+  margin-top: 10px;
+}
+
+#admin-controls button {
+  background: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#admin-controls button:hover {
+  background: #c82333;
+}
+
+.button-group .section-images {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: rgb(15,108,107);;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+}
+
+header .logo {
+  height: 50px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.header-content {
+  margin-top: 10px;
+}
+
+nav {
+  background: #444;
+  color: #fff;
+  padding: 1em;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 1em;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+.section {
+  padding: 2em;
+  margin: 1em 0;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.section h2 {
+  margin-top: 0;
+}
+
+.section .button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.section .button-group a,
+.section .button-group button {
+  display: flex;
+  align-items: center;
+  padding: 0.5em 1em;
+  background: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.section .button-group a:hover,
+.section .button-group button:hover {
+  background: #0056b3;
+}
+
+.section .section-image {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1em 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+.logo{
+  margin-left: 280px;
+}
+
