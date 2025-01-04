@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Service Program</title>
+    <link rel="stylesheet" href="css/site.css">
+    <script src="/campusconnectJAVAscript/script.js" defer></script>
+    <script src="js/search.js" defer></script>
+    <script src="js/script.js"></script>
+    <script src="js/signin.js"></script>
+    <script src="js/admin.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .program {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .service {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+        }
+        .service h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        .service p {
+            margin: 5px 0;
+        }
+        .service .contact {
+            font-weight: bold;
+        }
+        .admin-form {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+        }
+        .admin-form label, .admin-form input, .admin-form textarea {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .admin-form input, .admin-form textarea {
+            width: 100%;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .admin-form button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .delete-btn {
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Community Service Program</h1>
+
+    <div class="admin-form">
+        <h2>Add New CSP Activity</h2>
+        <form id="addActivityForm">
+            <label for="activityName">Activity Name:</label>
+            <input type="text" id="activityName" name="activityName" required>
+            
+            <label for="contactName">Contact Name:</label>
+            <input type="text" id="contactName" name="contactName" required>
+            
+            <label for="contactEmail">Contact Email:</label>
+            <input type="email" id="contactEmail" name="contactEmail" required>
+            
+            <label for="contactPhone">Contact Phone:</label>
+            <input type="tel" id="contactPhone" name="contactPhone" required>
+            
+            <label for="activityDescription">Description:</label>
+            <textarea id="activityDescription" name="activityDescription" rows="4" required></textarea>
+            
+            <label for="timeCommitment">Time Commitment:</label>
+            <input type="text" id="timeCommitment" name="timeCommitment" required>
+            
+            <button type="submit">Add Activity</button>
+        </form>
+    </div>
+
+    <div class="program" id="activityList">
+        <!-- Existing activities will be dynamically added here -->
+        <div class="service">
+            <h2>Youth Education Program</h2>
+            <p><span class="contact">Contact:</span> Jane Doe (janedoe@example.com)</p>
+            <p><span class="contact">Phone:</span> +1 (123) 456-7890</p>
+            <p><span class="contact">Description:</span> Assist in tutoring and mentoring local youth in various subjects.</p>
+            <p><span class="contact">Time Commitment:</span> Flexible, based on availability.</p>
+            <button class="delete-btn" onclick="deleteActivity(this)">Delete</button>
+        </div>
+
+        <div class="service">
+            <h2>Community Clean-Up Campaign</h2>
+            <p><span class="contact">Contact:</span> John Smith (johnsmith@example.com)</p>
+            <p><span class="contact">Phone:</span> +1 (234) 567-8901</p>
+            <p><span class="contact">Description:</span> Participate in neighborhood clean-up efforts to improve our local environment.</p>
+            <p><span class="contact">Time Commitment:</span> Saturday mornings, 8:00 AM - 12:00 PM.</p>
+            <button class="delete-btn" onclick="deleteActivity(this)">Delete</button>
+        </div>
+
+        <div class="service">
+            <h2>Elderly Care Program</h2>
+            <p><span class="contact">Contact:</span> Emily Brown (emilybrown@example.com)</p>
+            <p><span class="contact">Phone:</span> +1 (345) 678-9012</p>
+            <p><span class="contact">Description:</span> Visit and provide companionship to elderly residents at local nursing homes.</p>
+            <p><span class="contact">Time Commitment:</span> Weekday afternoons, 2:00 PM - 4:00 PM.</p>
+            <button class="delete-btn" onclick="deleteActivity(this)">Delete</button>
+        </div>
+    </div>
+
+    <div class="admin-form">
+        <h2>Delete CSP Activities</h2>
+        <form id="deleteActivitiesForm">
+            <label for="activitiesToDelete">Select activities to delete:</label>
+            <select id="activitiesToDelete" name="activitiesToDelete" multiple size="3" required>
+                <option value="Youth Education Program">Youth Education Program</option>
+                <option value="Community Clean-Up Campaign">Community Clean-Up Campaign</option>
+                <option value="Elderly Care Program">Elderly Care Program</option>
+            </select>
+            
+            <button type="submit">Delete Selected Activities</button>
+        </form>
+    </div>
+
+    <script>
+        // Example script to handle form submission and delete buttons
+        document.addEventListener('DOMContentLoaded', function () {
+            const addActivityForm = document.getElementById('addActivityForm');
+            const deleteActivitiesForm = document.getElementById('deleteActivitiesForm');
+            const activityList = document.getElementById('activityList');
+
+            addActivityForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                const activityName = document.getElementById('activityName').value;
+                const contactName = document.getElementById('contactName').value;
+                const contactEmail = document.getElementById('contactEmail').value;
+                const contactPhone = document.getElementById('contactPhone').value;
+                const activityDescription = document.getElementById('activityDescription').value;
+                const timeCommitment = document.getElementById('timeCommitment').value;
+
+                const newActivity = document.createElement('div');
+                newActivity.classList.add('service');
+                newActivity.innerHTML = `
+                    <h2>${activityName}</h2>
+                    <p><span class="contact">Contact:</span> ${contactName} (${contactEmail})</p>
+                    <p><span class="contact">Phone:</span> ${contactPhone}</p>
+                    <p><span class="contact">Description:</span> ${activityDescription}</p>
+                    <p><span class="contact">Time Commitment:</span> ${timeCommitment}</p>
+                    <button class="delete-btn" onclick="deleteActivity(this)">Delete</button>
+                `;
+
+                activityList.appendChild(newActivity);
+
+                // Reset the form after submission
+                addActivityForm.reset();
+            });
+
+            deleteActivitiesForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                const selectedActivities = deleteActivitiesForm.elements.activitiesToDelete.selectedOptions;
+                
+                for (let option of selectedActivities) {
+                    const activityToDelete = option.value;
+                    const activities = activityList.getElementsByClassName('service');
+                    
+                    for (let activity of activities) {
+                        if (activity.querySelector('h2').textContent === activityToDelete) {
+                            activity.remove();
+                            break;
+                        }
+                    }
+                }
+            });
+        });
+
+        function deleteActivity(button) {
+            button.parentNode.remove();
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contribute | CampusConnect</title>
+    <link rel="stylesheet" href="site.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #0044cc;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        main {
+            padding: 30px;
+            background-color: white;
+            margin: 20px auto;
+            max-width: 800px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h2 {
+            color: #007BFF;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            font-size: 1em;
+        }
+        button {
+            padding: 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <a href="index.html">
+            <img src="assets/hugging.png" alt="CampusConnect Logo" width="100" height="80"/>
+        </a>        
+        <h1>CampusConnect</h1>
+    </header>
+
+    <main>
+        <h2>Contribute to CampusConnect</h2>
+        <p>We welcome contributions from students, educators, and professionals! Share your knowledge, resources, tips, and help others by submitting your content. Please fill out the form below to submit your contribution.</p>
+        
+        <form action="/submit-contribution" method="POST">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="title">Title of Your Contribution:</label>
+            <input type="text" id="title" name="title" required>
+            
+            <label for="content">Content of Your Submission:</label>
+            <textarea id="content" name="content" rows="6" required></textarea>
+            
+            <button type="submit">Submit Contribution</button>
+        </form>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 CampusConnect | All Rights Reserved</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Upload Images</title>
+    <link rel="stylesheet" href="css/site.css">
+    <script src="/campusconnectJAVAscript/script.js" defer></script>
+    <script src="js/search.js" defer></script>
+    <script src="js/script.js"></script>
+    <script src="js/signin.js"></script>
+    <script src="js/admin.js"></script>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+    }
+    .button-group {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .form-group {
+        margin-bottom: 10px;
+    }
+</style>
+</head>
+<body>
+
+<div class="button-group">
+    <a href="index.html">Back to Home</a>
+</div>
+
+<div class="form-group">
+    <label for="imageUpload">Select Image(s) to Upload:</label>
+    <input type="file" id="imageUpload" accept="image/*" multiple>
+    <button id="uploadBtn">Upload</button>
+</div>
+
+<script>
+    const adminPassword = 'admin123'; // Replace with your actual admin password
+
+    const uploadBtn = document.getElementById('uploadBtn');
+    const imageUpload = document.getElementById('imageUpload');
+
+    // Event listener for upload button click
+    uploadBtn.addEventListener('click', function() {
+        const password = prompt('Enter admin password to upload images:');
+        // Replace 'admin123' with your actual admin password
+        if (password !== adminPassword) {
+            alert('Incorrect password. Access denied.');
+            return;
+        }
+
+        // Handle image upload (simulated here)
+        const files = imageUpload.files;
+        if (files.length === 0) {
+            alert('Please select at least one image to upload.');
+            return;
+        }
+
+        // Simulated upload process (replace with actual upload logic)
+        alert('Images uploaded successfully!');
+
+        // Optional: Clear the file input after upload
+        imageUpload.value = '';
+    });
+
+</script>
+
+</body>
+</html>

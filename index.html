@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Transition Guide</title>
+    <link rel="stylesheet" href="css/site.css">
+    <script src="/campusconnectJAVAscript/script.js" defer></script>
+    <script src="js/search.js" defer></script>
+    <script src="js/script.js"></script>
+    <script src="js/signin.js"></script>
+    <script src="js/admin.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const themeToggleButton = document.querySelector(".theme-toggle");
+    
+            themeToggleButton.addEventListener("click", () => {
+                document.body.classList.toggle("dark-theme");
+    
+                if (document.body.classList.contains("dark-theme")) {
+                    themeToggleButton.textContent = "Switch to Light Mode";
+                } else {
+                    themeToggleButton.textContent = "Switch to Dark Mode";
+                }
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const themeToggleButton = document.querySelector(".theme-toggle");
+    
+            // Check localStorage for saved theme
+            if (localStorage.getItem("theme") === "dark") {
+                document.body.classList.add("dark-theme");
+                themeToggleButton.textContent = "Switch to Light Mode";
+            }
+    
+            themeToggleButton.addEventListener("click", () => {
+                document.body.classList.toggle("dark-theme");
+    
+                if (document.body.classList.contains("dark-theme")) {
+                    themeToggleButton.textContent = "Switch to Light Mode";
+                    localStorage.setItem("theme", "dark");
+                } else {
+                    themeToggleButton.textContent = "Switch to Dark Mode";
+                    localStorage.setItem("theme", "light");
+                }
+            });
+        });
+    </script>
+    
+    
+
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-image:url(assets/bg.png);
+        }
+
+        header {
+            background-color: #0044cc;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+        }
+
+        header img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: #333;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+        }
+
+        nav ul li a:hover {
+            background-color: #555;
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .button-group a, .button-group button {
+            width: 30%;
+            margin-bottom: 15px;
+            text-align: center;
+            padding: 10px;
+            background-color: #2335c3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-group a:hover, .button-group button:hover {
+            background-color: #0033a0;
+        }
+
+        .section-image {
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            .button-group a, .button-group button {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            nav ul li {
+                display: block;
+                margin: 5px 0;
+            }
+
+            nav ul li a {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .button-group a, .button-group button {
+                width: 100%;
+                font-size: 1em;
+                padding: 12px;
+            }
+
+            nav ul li {
+                font-size: 0.9em;
+            }
+        }
+
+    </style>
+    <style>
+        body.dark-theme {
+            background-color: #121212;
+            color: #ffffff;
+        }
+    
+        header.dark-theme {
+            background-color: #1e1e1e;
+        }
+    
+        nav.dark-theme {
+            background-color: #1e1e1e;
+        }
+    
+        nav.dark-theme ul li a {
+            color: #dddddd;
+        }
+    
+        nav.dark-theme ul li a:hover {
+            background-color: #444444;
+        }
+    
+        .footer.dark-theme {
+            background-color: #1e1e1e;
+        }
+    </style>
+    
+</head>
+<body>
+
+    <header>
+        <a href="index.html">
+            <img src="assets/hugging.png" alt="CampusConnect Logo" width="100" height="55"/>
+        </a>
+        <div class="header-content">
+            <h1>CampusConnect</h1>
+            <div class="announcement">
+                <marquee behavior="" direction="left">
+                    <p>We're here to help you prepare for college with confidence!</p>
+                </marquee>
+            </div>
+            <div id="admin-controls" style="display: none;">
+                <button id="edit-resources">Edit Resources</button>
+            </div>
+            
+            <script>
+                const isAdmin = true; // Replace this with proper user authentication
+                if (isAdmin) {
+                    document.getElementById("admin-controls").style.display = "block";
+                }
+            
+                document.getElementById("edit-resources").addEventListener("click", function () {
+                    const password = prompt("Please enter the admin password:");
+                    if (password === "admin123") { // Replace with a secure password check
+                        window.location.href = "edit-resources.html";
+                    } else {
+                        alert("Access denied. Incorrect password.");
+                    }
+                });
+            
+                document.getElementById("past-papers").addEventListener("click", function () {
+                    window.location.href = "pastpaper.html";
+                });
+            </script>
+    </header> 
+
+    <nav>
+        <ul class="nav-menu">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="FAQs.html">FAQ</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="resources.html">Resources</a></li>
+        </ul>
+    </nav>
+    
+
+    <main>
+        <!-- Social Hub Section -->
+        <section class="section centered-section">
+            <h2 class="social">Social Hub</h2>
+            <p>Connect with your friends, seniors, and peers!</p>
+            <div class="button-group">
+                <a href="https://discord.com/channels/1253742122490789989/1253742122490789992">
+                    <img src="assets/social_hub_image.jpg" alt="Social Hub - Connect with friends" class="section-image">
+                    <span>Friend Circle</span>
+                </a>
+                <a href="https://discord.com/channels/1253742837065842708/1253742837623951413">
+                    <img src="assets/senior_advice_image.jpg" alt="Senior Advice - Guidance from seniors" class="section-image">
+                    <span>Senior Advice</span>
+                </a>
+                <a href="https://discord.com/channels/1253740283011661894/1253740283011661898">
+                    <img src="assets/discord_chat_image.jpg" alt="Discord Chat - Community chat" class="section-image">
+                    <span>Discord Chat</span>
+                </a>
+            </div>
+        </section>
+        
+        
+        <!-- Food Facilities Section -->
+        <section class="section">
+            <h2>Food Facilities</h2>
+            <p>Find the best dining spots on campus!</p>
+            <div class="button-group">
+                <a href="cafeteria.html">
+                    <img src="assets/cafeteria_image.jpg" alt="Cafeteria Menu" class="section-image">
+                    <span>Cafeteria Menu</span>
+                </a>
+                <a href="dininghour.html">
+                    <img src="assets/dining_hours_image.jpg" alt="Dining Hours" class="section-image">
+                    <span>Dining Hours</span>
+                </a>
+                <a href="foodreview.html">
+                    <img src="assets/food_reviews_image.jpg" alt="Food Reviews" class="section-image">
+                    <span>Food Reviews</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Activities Section -->
+        <section class="section">
+            <h2>Activities, Games & News</h2>
+            <p>Stay updated on the latest events, festivals, games & news!</p>
+            <ul>
+                <li><a href="calendar.html">Festival Calendar</a></li>
+                <li><a href="csp.html">Community Service Programs (CSP)</a></li>
+                <li><a href="extracurriculumn.html">Extracurricular Activities</a></li>
+            </ul>
+        </section>
+
+        <!-- Academics Section -->
+        <section class="section">
+            <h2>Access Past Papers and Study Materials</h2>
+            <p>Explore our collection of past papers and study materials.</p>
+            <div class="button-group">
+                <button id="past-papers">Past Papers</button>
+                <a href="https://www.amazon.in/s?k=study+materials+for+students&crid=XODIY6B0TM5T&sprefix=study+mater%2Caps%2C208&ref=nb_sb_ss_pltr-sample-20_2_11">
+                    <button id="study-materials">Study Materials</button>
+                </a>
+            </div>
+        </section>
+    </main>
+    <button class="theme-toggle">Switch to Light Mode</button>
+    <!-- Footer Section -->
+    <footer class="footer">
+        <p>&copy; 2024 College Transition Guide</p>
+    </footer>
+
+</body>
+</html>

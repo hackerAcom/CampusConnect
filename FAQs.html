@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusConnect - FAQs</title>
+    <link rel="stylesheet" href="css/site.css">
+    <script src="/campusconnectJAVAscript/script.js" defer></script>
+    <script src="js/search.js" defer></script>
+    <script src="js/script.js"></script>
+    <script src="js/signin.js"></script>
+    <script src="js/admin.js"></script>
+    <style>
+        .feedback-box {
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .feedback-box h2 {
+            margin-top: 0;
+        }
+        .feedback-box textarea {
+            width: 100%;
+            height: 100px;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical;
+        }
+        .feedback-box button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .feedback-box button:hover {
+            background-color: #0056b3;
+        }
+        #feedback-message {
+            margin-top: 10px;
+            color: green;
+            font-weight: bold;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <a href="index.html">
+            <img src="assets/hugging.png" alt="hugging" class="full-image">
+        </a>
+        <h1>CampusConnect - FAQs</h1>
+        <p>We are here to help you prepare for college with confidence!</p>
+    </header>
+
+    <!-- Search Bar for FAQs -->
+    <section class="faq-search">
+        <label for="faq-search-bar">Search FAQs:</label>
+        <input type="text" id="faq-search-bar" placeholder="Search for answers...">
+        <button onclick="searchFAQ()">Search</button>
+    </section>
+
+    <!-- FAQ content -->
+    <main>
+        <h2>FAQs</h2>
+        <ul>
+            <li><a href="#q1">What is CampusConnect?</a></li>
+            <li><a href="#q2">How do I get started with CampusConnect?</a></li>
+            <li><a href="#q3">What are the benefits of using CampusConnect?</a></li>
+            <li><a href="#q4">Can I customize my experience on CampusConnect?</a></li>
+            <li><a href="#q5">Is CampusConnect free to use?</a></li>
+            <li><a href="#q6">How can I contact the CampusConnect support team?</a></li>
+            <li><a href="#q7">How can I contribute to CampusConnect?</a></li>
+            <li><a href="#q8">Is my personal information safe on CampusConnect?</a></li>
+        </ul>
+
+        <!-- FAQ questions and answers -->
+        <div id="q1">
+            <h3>Q: What is CampusConnect?</h3>
+            <p>--> CampusConnect is a comprehensive guide to help you prepare for college with confidence. It provides valuable information on college life, academics, social life, and more.</p>
+        </div>
+
+        <div id="q2">
+            <h3>Q: How do I get started with CampusConnect?</h3>
+            <p>--> To get started with CampusConnect, simply navigate to the main page and explore the different sections. You can also search for specific topics or questions using the search bar.</p>
+        </div>
+
+        <div id="q3">
+            <h3>Q: What are the benefits of using CampusConnect?</h3>
+            <p>--> The benefits of using CampusConnect include getting access to valuable information on college life, staying updated on campus events and news, and connecting with other students and seniors.</p>
+        </div>
+
+        <div id="q4">
+            <h3>Q: Can I customize my experience on CampusConnect?</h3>
+            <p>--> Yes! You can customize your experience on CampusConnect by filtering content based on your interests, searching for specific topics, or connecting with other students and seniors who share similar interests.</p>
+        </div>
+
+        <div id="q5">
+            <h3>Q: Is CampusConnect free to use?</h3>
+            <p>--> Yes, CampusConnect is completely free for all users! You can access all of our resources and tools without any cost. We are committed to making college preparation accessible to everyone.</p>
+        </div>
+
+        <div id="q6">
+            <h3>Q: How can I contact the CampusConnect support team?</h3>
+            <p>--> If you have any questions or need assistance, you can reach our support team via email at support@campusconnect.com. We're happy to help with any inquiries or technical issues.</p>
+        </div>
+
+        <div id="q7">
+            <h3>Q: How can I contribute to CampusConnect?</h3>
+            <p>--> We welcome contributions from students, educators, and professionals in the field! If you'd like to share your knowledge, resources, or tips, you can submit your content through our submission form on the "Contribute" page. We are always looking for new insights to help others.
+                <a href="contributepage.html">click me </a>if want to contribute
+            </p>
+        </div>
+
+        <div id="q8">
+            <h3>Q: Is my personal information safe on CampusConnect?</h3>
+            <p>--> Yes, protecting your privacy is a top priority for us. We have implemented strong security measures to safeguard your personal information. For more details, please refer to our Privacy Policy.</p>
+        </div>
+
+        <!-- Feedback Box -->
+        <div class="feedback-box">
+            <h2>Feedback</h2>
+            <p>We value your feedback! Let us know how we can improve our FAQ section:</p>
+            <textarea id="feedback-input" placeholder="Write your feedback here..."></textarea>
+            <button onclick="submitFeedback()">Submit Feedback</button>
+            <p id="feedback-message">Thank you for your feedback!</p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 College Transition Guide</p>
+    </footer>
+
+    <script>
+        function submitFeedback() {
+            const feedbackInput = document.getElementById("feedback-input");
+            const feedbackMessage = document.getElementById("feedback-message");
+
+            if (feedbackInput.value.trim() !== "") {
+                feedbackInput.value = ""; // Clear the input field
+                feedbackMessage.style.display = "block"; // Show thank-you message
+                setTimeout(() => {
+                    feedbackMessage.style.display = "none"; // Hide the message after 3 seconds
+                }, 3000);
+            } else {
+                alert("Please enter your feedback before submitting.");
+            }
+        }
+    </script>
+</body>
+</html>

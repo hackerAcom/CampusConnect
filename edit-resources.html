@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Resources - CampusConnect Admin</title>
+    <link rel="stylesheet" href="css/site.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <script src="/campusconnectJAVAscript/script.js" defer></script>
+    <script src="js/search.js" defer></script>
+    <script src="js/script.js"></script>
+    <script src="js/signin.js"></script>
+    <script src="js/admin.js"></script>
+</head>
+<body>
+    <header class="header">
+        <h1>Edit Resources</h1>
+    </header>
+
+    <main>
+        <!-- Social Hub Section -->
+        <section>
+            <h2>Social Hub</h2>
+            <form id="social-hub-form">
+                <label for="friend-circle-link">Friend Circle Link:</label>
+                <input type="text" id="friend-circle-link" name="friend-circle-link" placeholder="Enter Friend Circle URL" required>
+
+                <label for="friend-circle-image">Friend Circle Image:</label>
+                <input type="text" id="friend-circle-image" name="friend-circle-image" placeholder="Enter Friend Circle Image URL" required>
+
+                <label for="senior-advice-link">Senior Advice Link:</label>
+                <input type="text" id="senior-advice-link" name="senior-advice-link" placeholder="Enter Senior Advice URL" required>
+
+                <label for="senior-advice-image">Senior Advice Image:</label>
+                <input type="text" id="senior-advice-image" name="senior-advice-image" placeholder="Enter Senior Advice Image URL" required>
+
+                <label for="discord-chat-link">Discord Chat Link:</label>
+                <input type="text" id="discord-chat-link" name="discord-chat-link" placeholder="Enter Discord Chat URL" required>
+
+                <label for="discord-chat-image">Discord Chat Image:</label>
+                <input type="text" id="discord-chat-image" name="discord-chat-image" placeholder="Enter Discord Chat Image URL" required>
+
+                <button type="submit">Save Social Hub</button>
+            </form>
+        </section>
+
+        <!-- Food Facilities Section -->
+        <section>
+            <h2>Food Facilities</h2>
+            <form id="food-facilities-form">
+                <label for="cafeteria-menu-link">Cafeteria Menu Link:</label>
+                <input type="text" id="cafeteria-menu-link" name="cafeteria-menu-link" placeholder="Enter Cafeteria Menu URL" required>
+
+                <label for="cafeteria-menu-image">Cafeteria Menu Image:</label>
+                <input type="text" id="cafeteria-menu-image" name="cafeteria-menu-image" placeholder="Enter Cafeteria Menu Image URL" required>
+
+                <label for="dining-hours-link">Dining Hours Link:</label>
+                <input type="text" id="dining-hours-link" name="dining-hours-link" placeholder="Enter Dining Hours URL" required>
+
+                <label for="dining-hours-image">Dining Hours Image:</label>
+                <input type="text" id="dining-hours-image" name="dining-hours-image" placeholder="Enter Dining Hours Image URL" required>
+
+                <label for="food-reviews-link">Food Reviews Link:</label>
+                <input type="text" id="food-reviews-link" name="food-reviews-link" placeholder="Enter Food Reviews URL" required>
+
+                <label for="food-reviews-image">Food Reviews Image:</label>
+                <input type="text" id="food-reviews-image" name="food-reviews-image" placeholder="Enter Food Reviews Image URL" required>
+
+                <button type="submit">Save Food Facilities</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 CampusConnect Admin</p>
+    </footer>
+</body>
+</html>

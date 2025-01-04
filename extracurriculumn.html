@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extracurricular Activities</title>
+    <link rel="stylesheet" href="css/site.css">
+    <script src="/campusconnectJAVAscript/script.js" defer></script>
+    <script src="js/search.js" defer></script>
+    <script src="js/script.js"></script>
+    <script src="js/signin.js"></script>
+    <script src="js/admin.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .activities {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .activity {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            position: relative;
+        }
+        .activity h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        .activity p {
+            margin: 5px 0;
+        }
+        .activity .delete-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .admin-form {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+        }
+        .admin-form label, .admin-form input, .admin-form textarea {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .admin-form input, .admin-form textarea {
+            width: 100%;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .admin-form button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Extracurricular Activities</h1>
+
+    <div class="admin-form">
+        <h2>Add New Activity</h2>
+        <form id="addActivityForm">
+            <label for="activityName">Activity Name:</label>
+            <input type="text" id="activityName" name="activityName" required>
+            
+            <label for="activityDescription">Description:</label>
+            <textarea id="activityDescription" name="activityDescription" rows="4" required></textarea>
+            
+            <button type="submit">Add Activity</button>
+        </form>
+    </div>
+
+    <div class="activities" id="activityList">
+        <!-- Existing activities will be dynamically added here -->
+        <div class="activity">
+            <h2>Music Club</h2>
+            <p>Description: Join us for musical rehearsals and performances.</p>
+            <button class="delete-btn" onclick="deleteActivity(this)">Delete</button>
+        </div>
+
+        <div class="activity">
+            <h2>Sports Team</h2>
+            <p>Description: Participate in weekly sports practices and tournaments.</p>
+            <button class="delete-btn" onclick="deleteActivity(this)">Delete</button>
+        </div>
+
+        <div class="activity">
+            <h2>Debate Society</h2>
+            <p>Description: Engage in lively debates on various topics.</p>
+            <button class="delete-btn" onclick="deleteActivity(this)">Delete</button>
+        </div>
+    </div>
+
+    <script>
+        // Example script to handle form submission and delete buttons
+        document.addEventListener('DOMContentLoaded', function () {
+            const addActivityForm = document.getElementById('addActivityForm');
+            const activityList = document.getElementById('activityList');
+
+            addActivityForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                const activityName = document.getElementById('activityName').value;
+                const activityDescription = document.getElementById('activityDescription').value;
+
+                const newActivity = document.createElement('div');
+                newActivity.classList.add('activity');
+                newActivity.innerHTML = `
+                    <h2>${activityName}</h2>
+                    <p>Description: ${activityDescription}</p>
+                    <button class="delete-btn" onclick="deleteActivity(this)">Delete</button>
+                `;
+
+                activityList.appendChild(newActivity);
+
+                // Reset the form after submission
+                addActivityForm.reset();
+            });
+        });
+
+        function deleteActivity(button) {
+            button.parentNode.remove();
+        }
+    </script>
+
+</body>
+</html>
